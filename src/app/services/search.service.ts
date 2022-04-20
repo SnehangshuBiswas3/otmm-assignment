@@ -19,6 +19,7 @@ export interface AssetList {
       url: string;
     };
   };
+  asset_id: string;
 }
 
 @Injectable({

@@ -2,13 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AssetList, SearchService } from '../services/search.service';
 
+interface Asset {
+  master_content_name: string;
+  thumbnail_content_url: string;
+  asset_id: string;
+}
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  assets: AssetList[] = [];
+  assets: Asset[] = [];
 
   baseUrl = 'http://training-otmm.acheron-tech.com:11090';
 
@@ -28,24 +34,13 @@ export class SearchComponent implements OnInit {
           (item) => !!item.rendition_content
         );
 
-        v = v.map((item) => {
+        this.assets = v.map((item) => {
           return {
-            asset_content_info: {
-              master_content: {
-                name: item.asset_content_info.master_content.name,
-              },
-            },
-            rendition_content: {
-              thumbnail_content: {
-                url:
-                  this.baseUrl + item.rendition_content.thumbnail_content.url,
-              },
-            },
+            master_content_name: item.asset_content_info.master_content.name,
+            thumbnail_content_url: item.rendition_content.thumbnail_content.url,
+            asset_id: item.asset_id,
           };
         });
-
-        this.assets = v;
-        console.log(this.assets);
       });
   }
 }

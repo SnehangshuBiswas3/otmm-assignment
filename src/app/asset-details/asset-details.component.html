@@ -1,0 +1,9 @@
+<div *ngIf="values.length">
+  <div *ngFor="let value of values" class="box">
+    <h2>Group Name: {{ value.group_name }}</h2>
+    <div *ngFor="let v of value.results" class="box">
+      <h3>Name: {{ v.name }}</h3>
+      <h3>Value: {{ v.value }}</h3>
+    </div>
+  </div>
+</div>

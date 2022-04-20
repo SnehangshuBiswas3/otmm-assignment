@@ -8,8 +8,11 @@
 
 <div *ngIf="assets.length">
   <h2>Results</h2>
-  <div *ngFor="let asset of assets">
-    <h2>{{ asset.asset_content_info.master_content.name }}</h2>
-    <img [src]="asset.rendition_content.thumbnail_content.url" alt="" />
+  <div *ngFor="let asset of assets" [routerLink]="['/assets/', asset.asset_id]">
+    <h2>{{ asset.master_content_name }}</h2>
+    <img
+      [src]="asset.thumbnail_content_url"
+      alt="{asset.master_content_name}"
+    />
   </div>
 </div>

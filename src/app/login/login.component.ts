@@ -8,15 +8,13 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
   });
 
   constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     try {
