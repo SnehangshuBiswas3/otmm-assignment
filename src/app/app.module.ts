@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { AssetDetailsComponent } from './asset-details/asset-details.component';
 import { InterceptorInterceptor } from './interceptor.interceptor';
+import { AuthSrcPipe } from './pipes/auth-src.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { InterceptorInterceptor } from './interceptor.interceptor';
     LoginComponent,
     SearchComponent,
     AssetDetailsComponent,
+    AuthSrcPipe,
   ],
   imports: [
     BrowserModule,

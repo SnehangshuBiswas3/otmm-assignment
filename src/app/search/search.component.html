@@ -11,7 +11,7 @@
   <div *ngFor="let asset of assets" [routerLink]="['/assets/', asset.asset_id]">
     <h2>{{ asset.master_content_name }}</h2>
     <img
-      [src]="asset.thumbnail_content_url"
+      [src]="asset.thumbnail_content_url | authSrc | async"
       alt="{asset.master_content_name}"
     />
   </div>

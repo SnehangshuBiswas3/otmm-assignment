@@ -37,7 +37,8 @@ export class SearchComponent implements OnInit {
         this.assets = v.map((item) => {
           return {
             master_content_name: item.asset_content_info.master_content.name,
-            thumbnail_content_url: item.rendition_content.thumbnail_content.url,
+            thumbnail_content_url:
+              this.baseUrl + item.rendition_content.thumbnail_content.url,
             asset_id: item.asset_id,
           };
         });
